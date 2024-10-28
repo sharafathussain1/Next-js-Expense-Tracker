@@ -42,7 +42,7 @@ export default function ForgotPassword() {
         </div>
         <div className="parent forgot-parent border rounded-xl">
           <p className="text-center text-slate-800">
-            Check your Email after enter your email address{" "}
+            Check your Mail box after enter your email address{" "}
           </p>
           <label className="input input-bordered flex items-center gap-2">
             <svg

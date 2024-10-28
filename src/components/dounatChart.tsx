@@ -6,7 +6,7 @@ import { Chart, ArcElement, Tooltip, Legend } from "chart.js";
 
 Chart.register(ArcElement, Tooltip, Legend);
 
-const DonutChart = ({ data }: any) => {
+const DonutChart = ({ data }) => {
   const chartRef = useRef(null);
   // const { expense } = UseFinanceContext();
   useEffect(() => {

@@ -129,7 +129,7 @@ export default function Login() {
         </div>
 
         <h4 className="text-slate-900">
-          Don't have an account ...?
+          Don&apos;t have an account ...?
           <Link className="text-blue-700" href={"/signup"}>
             Sign up
           </Link>

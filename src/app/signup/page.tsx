@@ -19,7 +19,7 @@ export default function SignUP() {
   const [UserName, setUserName] = useState("");
 
   const [error, seterror] = useState<string | null>(null);
-  const [message, setmessage] = useState<string | null>(null);
+  const [message] = useState<string | null>(null);
   const Router = useRouter();
 
   // here Authentication

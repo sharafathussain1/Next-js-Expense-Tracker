@@ -17,8 +17,8 @@ export default function Varify() {
         <div className="succes_message">
           <h1>Email Sent Successfully!</h1>
           <p>
-            Please check your email inbox and spam folder and click the link and
-            verify your email and <b>Hit the refresh button</b>
+            Please check your email inbox then click the link to verify your
+            email and <b>Hit the refresh button</b>
           </p>
           <p>Thank You!</p>
         </div>
