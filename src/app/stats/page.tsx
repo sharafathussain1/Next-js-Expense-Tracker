@@ -9,7 +9,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import { UseFinanceContext } from "../context/finaceContext";
+import { UseFinanceContext } from "../../context/finaceContext";
 import { ExpenseType } from "@/type/expenseType";
 import DonutChart from "@/components/dounatChart";
 import { incomeDataType } from "@/type/incometype";

@@ -1,11 +1,6 @@
 "use client";
-import { auth, SigInUser } from "@/firebase/authentication";
 import { app } from "@/firebase/config";
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  sendEmailVerification,
-} from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -26,14 +21,14 @@ export default function Login() {
         // Signed in
         if (userCredential.user.emailVerified === true) {
           seterror("");
-          const { email, uid } = userCredential.user;
+          // const { email, uid } = userCredential.user;
 
-          console.log(
-            email,
-            uid,
-            "user LOGGED IN successfully.",
-            userCredential
-          );
+          // console.log(
+          //   email,
+          //   uid,
+          //   "user LOGGED IN successfully.",
+          //   userCredential
+          // );
           setmessage("Sign in succesfully");
           setemail("");
           setpassword("");
@@ -44,7 +39,6 @@ export default function Login() {
         // ...
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
         seterror(errorMessage);
       });

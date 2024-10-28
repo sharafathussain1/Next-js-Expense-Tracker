@@ -1,21 +1,19 @@
-import { UseFinanceContext } from "@/app/context/finaceContext";
+import { UseFinanceContext } from "@/context/finaceContext";
 import { ExpenseType } from "@/type/expenseType";
 import { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { BsCalendar2Date } from "react-icons/bs";
 import { CiStickyNote } from "react-icons/ci";
-import { FaArrowTrendUp, FaMoneyBill1 } from "react-icons/fa6";
-import { FcBearish, FcEmptyTrash, FcFullTrash } from "react-icons/fc";
+import { FaMoneyBill1 } from "react-icons/fa6";
+import { FcBearish, FcFullTrash } from "react-icons/fc";
 import { ImFlattr } from "react-icons/im";
-import { IoIosCloseCircleOutline } from "react-icons/io";
-import { MdDeleteForever, MdTitle } from "react-icons/md";
+
+import { MdTitle } from "react-icons/md";
 import { TbCategory2 } from "react-icons/tb";
 import { VscActivateBreakpoints } from "react-icons/vsc";
 
 export default function Expenses({
   index,
-  note,
-  categorie,
   createdAt,
   id,
   title,

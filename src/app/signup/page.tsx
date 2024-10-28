@@ -5,7 +5,6 @@ import { useState } from "react";
 import {
   getAuth,
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
   sendEmailVerification,
 } from "firebase/auth";
 import { app } from "@/firebase/config";
@@ -48,7 +47,6 @@ export default function SignUP() {
         saveUser({ email: email as string, UserName, uid });
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
         seterror(errorMessage);
       });

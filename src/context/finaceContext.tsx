@@ -7,11 +7,10 @@ import {
   doc,
   onSnapshot,
   query,
-  setDoc,
   where,
 } from "firebase/firestore";
 import { createContext, useContext, useEffect, useState } from "react";
-import { UseAuthContext } from "@/app/context/authcontext";
+import { UseAuthContext } from "@/context/authcontext";
 import { auth } from "@/firebase/authentication";
 import { incomeDataType } from "@/type/incometype";
 import { ExpenseType } from "@/type/expenseType";
@@ -25,11 +24,6 @@ export default function FinanceContextRapper({
 }) {
   const [expense, setExpense] = useState([]);
   const [income, setIncome] = useState([]);
-  // type
-  type UserExpenseType = {
-    id: string;
-    createdAt: Date;
-  };
 
   // user from authContext
   const { user } = UseAuthContext();
@@ -48,18 +42,17 @@ export default function FinanceContextRapper({
 
   // fetch income data
   useEffect(() => {
-    let readTodosRealtime;
     if (user) {
       const FetchData = async () => {
-        let currentUserUID = auth.currentUser?.uid;
+        const currentUserUID = auth.currentUser?.uid;
         console.log("Effect working");
         const q = query(
           collection(db, "income"),
           where("uid", "==", currentUserUID)
         );
         // get data real time
-        readTodosRealtime = onSnapshot(q, (querySnapshot) => {
-          let userIncome = querySnapshot.docs.map((incmeDoc) => ({
+        onSnapshot(q, (querySnapshot) => {
+          const userIncome = querySnapshot.docs.map((incmeDoc) => ({
             ...incmeDoc.data(),
             id: incmeDoc.id,
             createdAt: new Date(incmeDoc.data().createdAt.toMillis()),
@@ -90,15 +83,14 @@ export default function FinanceContextRapper({
   useEffect(() => {
     if (user) {
       const fetchExpenseData = async () => {
-        let readExpenseData;
         // let currentUserUId = auth.currentUser?.uid;
         const collectionRef = collection(db, "expense");
         const condition = where("uid", "==", auth.currentUser?.uid);
         const q = query(collectionRef, condition);
 
         // get data real time
-        readExpenseData = onSnapshot(q, (QuerySnapShot) => {
-          let userExpense = QuerySnapShot.docs.map((ExpenseDoc) => ({
+        onSnapshot(q, (QuerySnapShot) => {
+          const userExpense = QuerySnapShot.docs.map((ExpenseDoc) => ({
             ...ExpenseDoc.data(),
             id: ExpenseDoc.id,
             createdAt: new Date(ExpenseDoc.data().createdAt.toMillis()),

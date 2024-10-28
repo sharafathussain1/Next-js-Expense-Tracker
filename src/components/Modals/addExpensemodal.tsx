@@ -1,13 +1,11 @@
-import { db } from "@/firebase/firestore";
-import { addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
 import { MdOutlineAttachMoney, MdOutlineTitle } from "react-icons/md";
 import Modol from "../modol";
 import { auth } from "@/firebase/authentication";
-import { UseFinanceContext } from "@/app/context/finaceContext";
+import { UseFinanceContext } from "@/context/finaceContext";
 
 export default function AddExpense({ show, onclose }) {
-  const [modolIsOpen, setmodolIsOpen] = useState(false);
+  // const [modolIsOpen, setmodolIsOpen] = useState(false);
   const [title, settitle] = useState<string>("");
   const [color, setColor] = useState<string>("");
   const [amount, setamount] = useState<number | string>("");
@@ -19,7 +17,7 @@ export default function AddExpense({ show, onclose }) {
 
   const addexpenseHandler = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
-    let uid = auth.currentUser?.uid;
+    const uid = auth.currentUser?.uid;
     const expenseData = {
       color,
       title,
@@ -92,7 +90,7 @@ export default function AddExpense({ show, onclose }) {
                 value={amount}
                 // value={amount ?? ""} // If email is null, use an empty string
                 onChange={(e) => {
-                  let expenseVal = +e.target.value;
+                  const expenseVal = +e.target.value;
                   setamount(expenseVal);
                 }}
                 required

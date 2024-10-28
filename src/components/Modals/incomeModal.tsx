@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
-import { MdDeleteForever, MdOutlineAttachMoney } from "react-icons/md";
+import { useState } from "react";
+import { MdOutlineAttachMoney } from "react-icons/md";
 import Modol from "../modol";
 import { FaRegStickyNote } from "react-icons/fa";
 import { auth } from "@/firebase/authentication";
-import { UseFinanceContext } from "@/app/context/finaceContext";
+import { UseFinanceContext } from "@/context/finaceContext";
 import { FcBullish, FcFullTrash } from "react-icons/fc";
-import { FaArrowTrendUp } from "react-icons/fa6";
 
 export default function AddIncome({ showIncome, oncloseIncome }) {
   //   const [modolIsOpen, setmodolIsOpen] = useState(false)
@@ -20,7 +19,7 @@ export default function AddIncome({ showIncome, oncloseIncome }) {
   //  add income handler
   const addincomeHandler = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
-    let uid = auth.currentUser?.uid;
+    const uid = auth.currentUser?.uid;
     const incomeData = {
       amount,
       discription,
@@ -51,33 +50,6 @@ export default function AddIncome({ showIncome, oncloseIncome }) {
     }
   };
 
-  // fetch data
-
-  // useEffect(() => {
-  //   let readTodosRealtime;
-  //   if (user) {
-  //     const FetchData = async () => {
-  //       let currentUserUID = user?.uid;
-  //       console.log("Effect working");
-  //       const q = query(
-  //         collection(db, "income"),
-  //         where("uid", "==", currentUserUID)
-  //       );
-  //       // get data real time
-  //       readTodosRealtime = onSnapshot(q, (querySnapshot) => {
-  //         let userIncome = querySnapshot.docs.map((incmeDoc) => ({
-  //           ...incmeDoc.data(),
-  //           id: incmeDoc.id,
-  //           createdAt: new Date(incmeDoc.data().createdAt.toMillis()),
-  //         }));
-  //         setIncome(userIncome);
-  //         //   console.log(userTodo);
-  //       });
-  //     };
-  //     FetchData();
-  //   }
-  // }, [user]);
-
   return (
     <Modol ModelOpen={showIncome} setModelOpen={oncloseIncome}>
       {/* modal children */}
@@ -103,7 +75,7 @@ export default function AddIncome({ showIncome, oncloseIncome }) {
                 value={amount}
                 // value={amount ?? ""} //if amount is null show empty string
                 onChange={(e) => {
-                  let amountval = +e.target.value;
+                  const amountval = +e.target.value;
                   setamount(amountval);
                 }}
                 required

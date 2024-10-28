@@ -1,14 +1,14 @@
 // components/DonutChart.js
 import { useEffect, useRef } from "react";
 import { Chart, ArcElement, Tooltip, Legend } from "chart.js";
-import { ExpenseType } from "@/type/expenseType";
-import { UseFinanceContext } from "@/app/context/finaceContext";
+
+// import { UseFinanceContext } from "@/context/finaceContext";
 
 Chart.register(ArcElement, Tooltip, Legend);
 
 const DonutChart = ({ data }: any) => {
   const chartRef = useRef(null);
-  const { expense } = UseFinanceContext();
+  // const { expense } = UseFinanceContext();
   useEffect(() => {
     const ctx = chartRef.current.getContext("2d");
     const myChart = new Chart(ctx, {

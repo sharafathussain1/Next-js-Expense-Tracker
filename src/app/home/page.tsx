@@ -5,7 +5,7 @@ import Expenses from "@/components/epenses";
 import { useEffect, useState } from "react";
 import AddExpense from "@/components/Modals/addExpensemodal";
 import AddIncome from "@/components/Modals/incomeModal";
-import { UseFinanceContext } from "../context/finaceContext";
+import { UseFinanceContext } from "../../context/finaceContext";
 
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/firebase/firestore";
@@ -40,7 +40,7 @@ export default function User() {
 
   // get username from firestore
   useEffect(() => {
-    let user = auth.currentUser;
+    const user = auth.currentUser;
     if (user) {
       const getUserInfo = async () => {
         const docRef = doc(db, "user", user.uid);
