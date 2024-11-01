@@ -13,10 +13,21 @@ type show_incloseType = {
 export default function AddExpense({ show, onclose }: show_incloseType) {
   // const [modolIsOpen, setmodolIsOpen] = useState(false);
   const [title, settitle] = useState<string>("");
-  const [color, setColor] = useState<string>("");
+  const [color, setColor] = useState<string>("#000000");
   const [amount, setamount] = useState<number | string>("");
   const [categorie, setcategorie] = useState<string>("");
   const [note, setnote] = useState<string>("");
+
+  // for color to check color in hexadecimal
+  const handleColorChange = (newColor: string) => {
+    const isValidColor = /^#[0-9A-Fa-f]{6}$/.test(newColor);
+    if (isValidColor) {
+      setColor(newColor);
+    } else {
+      console.error("Invalid color format:", newColor);
+      // Optionally, set to a default color or handle the error
+    }
+  };
 
   // get expense add function from finance context
   const { AddExpense } = UseFinanceContext();
@@ -170,7 +181,7 @@ export default function AddExpense({ show, onclose }: show_incloseType) {
                 placeholder=""
                 value={color}
                 onChange={(e) => {
-                  setColor(e.target.value);
+                  handleColorChange(e.target.value);
                 }}
                 // ref={titleRef}
                 required

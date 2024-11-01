@@ -363,8 +363,7 @@ label{
   height: 200px !important
 }
 /* donutchart */
-.donutchart{
-  
+.donutchart{ 
   margin-top: 12px;
   height: 250px;
   width: 250px;
