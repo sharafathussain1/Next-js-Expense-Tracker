@@ -60,26 +60,32 @@ export default function Expenses({
             </div>
 
             <div className="mt-3">
-              <span className="flex items-center gap-2">
+              <span className="flex items-center gap-2  text-slate-50">
                 <MdTitle />
-                <p>Title: {expense[index].title}</p>
+                <p className=" text-slate-50">Title: {expense[index].title}</p>
               </span>
-              <span className="flex items-center gap-2">
+              <span className="flex items-center gap-2  text-slate-50">
                 <FaMoneyBill1 />
-                <p>Amount: {expense[index].amount}</p>
+                <p className=" text-slate-50">
+                  Amount: {expense[index].amount}
+                </p>
               </span>
-              <span className="flex items-center gap-2">
+              <span className="flex items-center gap-2  text-slate-50">
                 <TbCategory2 />
-                <p>Categorie:{expense[index].categorie}</p>
+                <p className=" text-slate-50">
+                  Categorie:{expense[index].categorie}
+                </p>
               </span>
-              <span className="flex items-center gap-2">
+              <span className="flex items-center gap-2  text-slate-50">
                 <CiStickyNote />
-                <p>Description :{expense[index].note}</p>
+                <p className=" text-slate-50">
+                  Description :{expense[index].note}
+                </p>
               </span>
-              <span className="flex items-center gap-2">
+              <span className="flex items-center gap-2  text-slate-50">
                 <BsCalendar2Date />
 
-                <p>
+                <p className=" text-slate-50">
                   Date: {expense[index].createdAt.toString().split("GMT")[0]}
                 </p>
               </span>

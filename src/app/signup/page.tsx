@@ -73,7 +73,7 @@ export default function SignUP() {
           <h1>Sign Up</h1>
         </div>
         {/* email */}
-        <label className="input input-bordered flex items-center gap-2">
+        <label className="input input-bordered flex items-center gap-2 bg-slate-900">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -84,6 +84,7 @@ export default function SignUP() {
             <path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
           </svg>
           <input
+            className="text-slate-50"
             type="email"
             id="signUp-email"
             placeholder="Email"
@@ -94,7 +95,7 @@ export default function SignUP() {
           />
         </label>
         {/* username */}
-        <label className="input input-bordered flex items-center gap-2">
+        <label className="input input-bordered flex items-center gap-2  bg-slate-900">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -105,7 +106,7 @@ export default function SignUP() {
           </svg>
           <input
             type="text"
-            className="UserName"
+            className="UserName text-slate-50"
             id="UserName"
             placeholder=" UserName"
             value={UserName}
@@ -115,7 +116,7 @@ export default function SignUP() {
           />
         </label>
         {/* password */}
-        <label className="input input-bordered flex items-center gap-2">
+        <label className="input input-bordered flex items-center gap-2  bg-slate-900">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -129,6 +130,7 @@ export default function SignUP() {
             />
           </svg>
           <input
+            className="text-slate-50"
             type="password"
             id="signUp-password"
             placeholder=" Enter password"
@@ -139,7 +141,7 @@ export default function SignUP() {
           />
         </label>
         {/* confirm password */}
-        <label className="input input-bordered flex items-center gap-2">
+        <label className="input input-bordered flex items-center gap-2  bg-slate-900">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -153,6 +155,7 @@ export default function SignUP() {
             />
           </svg>
           <input
+            className="text-slate-50"
             type="password"
             id="ConfirmPassw"
             placeholder=" Confirm password"
@@ -176,7 +179,7 @@ export default function SignUP() {
 
         <div className=" mt-5">
           <button
-            className="btn btn-wide"
+            className="btn btn-wide bg-slate-900 text-slate-50"
             onClick={() => {
               SignUpUser(email, password, Confirmpassword, UserName);
             }}

@@ -44,7 +44,7 @@ export default function ForgotPassword() {
           <p className="text-center text-slate-800">
             Check your Mail box after enter your email address{" "}
           </p>
-          <label className="input input-bordered flex items-center gap-2">
+          <label className="input input-bordered flex items-center gap-2 bg-slate-900">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
@@ -55,6 +55,7 @@ export default function ForgotPassword() {
               <path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
             </svg>
             <input
+              className="text-slate-50"
               type="email"
               placeholder="Enter Email"
               value={email}
@@ -64,7 +65,7 @@ export default function ForgotPassword() {
             />
           </label>
           <button
-            className="btn w-[100px]"
+            className="btn w-[100px] text-slate-50 bg-slate-900"
             onClick={() => {
               reset(email);
             }}

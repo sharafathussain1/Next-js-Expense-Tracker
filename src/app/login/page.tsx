@@ -21,14 +21,7 @@ export default function Login() {
         // Signed in
         if (userCredential.user.emailVerified === true) {
           seterror("");
-          // const { email, uid } = userCredential.user;
 
-          // console.log(
-          //   email,
-          //   uid,
-          //   "user LOGGED IN successfully.",
-          //   userCredential
-          // );
           setmessage("Sign in succesfully");
           setemail("");
           setpassword("");
@@ -52,7 +45,7 @@ export default function Login() {
         </div>
 
         {/* email */}
-        <label className="input input-bordered flex items-center gap-2">
+        <label className="input input-bordered flex items-center gap-2 bg-slate-900">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -63,6 +56,7 @@ export default function Login() {
             <path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
           </svg>
           <input
+            className="text-slate-50"
             type="email"
             id="login-email"
             placeholder="Email"
@@ -74,7 +68,7 @@ export default function Login() {
           />
         </label>
         {/* paswword */}
-        <label className="input input-bordered flex items-center gap-2">
+        <label className="input input-bordered flex items-center gap-2  bg-slate-900">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -88,6 +82,7 @@ export default function Login() {
             />
           </svg>
           <input
+            className="text-slate-50"
             type="password"
             id="login-password"
             placeholder="password"
@@ -118,7 +113,7 @@ export default function Login() {
         <div className=" mt-5">
           <button
             type="submit"
-            className="btn btn-wide"
+            className="btn btn-wide bg-slate-900 text-slate-50"
             onClick={() => SigInUser(email, password)}
           >
             Sign In
