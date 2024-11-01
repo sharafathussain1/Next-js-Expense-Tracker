@@ -1,6 +1,18 @@
 import { RiCloseLargeFill } from "react-icons/ri";
+type modalType = {
+  ModelOpen: boolean;
+  setModelOpen: (open: boolean) => void;
+  children: React.ReactNode;
+};
 
-export default function Modol({ ModelOpen, setModelOpen, children }) {
+export default function Modol({
+  ModelOpen,
+  setModelOpen,
+  children,
+}: modalType) {
+  const modalHandler = () => {
+    setModelOpen(false);
+  };
   return (
     <div className="model-parent h-full flex justify-center ">
       {/* make a conditional rendering of modol */}
@@ -12,7 +24,7 @@ export default function Modol({ ModelOpen, setModelOpen, children }) {
       >
         <p
           className="  close-icon text-2xl top-4 left-4  cursor-pointer"
-          onClick={() => setModelOpen(false)}
+          onClick={modalHandler}
         >
           <RiCloseLargeFill />
         </p>

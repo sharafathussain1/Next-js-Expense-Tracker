@@ -1,6 +1,8 @@
 export type incomeDataType = {
-    amount: number;
-    discription: string;
+    id:string;
+    amount: number|string;
+    description: string;
     createdAt: Date;
-    uid: string;
+    uid: string|undefined;
   };
+

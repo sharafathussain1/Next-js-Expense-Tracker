@@ -14,19 +14,40 @@ import { UseAuthContext } from "@/context/authcontext";
 import { auth } from "@/firebase/authentication";
 import { incomeDataType } from "@/type/incometype";
 import { ExpenseType } from "@/type/expenseType";
+type FinanceContextType = {
+  AddIncomeData: (incomeData: incomeDataType) => void;
+  AddExpense: (expenseData: ExpenseType) => void;
+  expense: ExpenseType[];
+  income: incomeDataType[];
+  deleteExpenseData: (id: string) => void;
+  DelteIncome: (id: string) => void;
+};
 
-const FinanceContext = createContext({});
+const FinanceContext = createContext<FinanceContextType>({
+  income: [],
+  expense: [],
+  deleteExpenseData: async () => {},
+  AddExpense: async () => {},
+  AddIncomeData: async () => {},
+  DelteIncome: async () => {},
+});
 
 export default function FinanceContextRapper({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const [expense, setExpense] = useState([]);
-  const [income, setIncome] = useState([]);
+  const [expense, setExpense] = useState<ExpenseType[]>([]);
+  const [income, setIncome] = useState<incomeDataType[]>([]);
+
+  // type incomeType = {
+  //   id: string;
+  //   createdAt: string | Date;
+  // };
 
   // user from authContext
-  const { user } = UseAuthContext();
+  const authContext = UseAuthContext();
+  const user = authContext?.user; // user will be undefined if authContext is null
 
   // Add income data
   const AddIncomeData = async (incomeData: incomeDataType) => {
@@ -53,7 +74,8 @@ export default function FinanceContextRapper({
         // get data real time
         onSnapshot(q, (querySnapshot) => {
           const userIncome = querySnapshot.docs.map((incmeDoc) => ({
-            ...incmeDoc.data(),
+            ...(incmeDoc.data() as incomeDataType),
+            // ...incmeDoc.data(),
             id: incmeDoc.id,
             createdAt: new Date(incmeDoc.data().createdAt.toMillis()),
           }));
@@ -91,7 +113,7 @@ export default function FinanceContextRapper({
         // get data real time
         onSnapshot(q, (QuerySnapShot) => {
           const userExpense = QuerySnapShot.docs.map((ExpenseDoc) => ({
-            ...ExpenseDoc.data(),
+            ...(ExpenseDoc.data() as ExpenseType),
             id: ExpenseDoc.id,
             createdAt: new Date(ExpenseDoc.data().createdAt.toMillis()),
           }));

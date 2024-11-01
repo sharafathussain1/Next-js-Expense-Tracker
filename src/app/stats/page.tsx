@@ -33,15 +33,15 @@ export default function BarChart() {
       {
         label: "Expenses",
         data: expense.map((items: ExpenseType) => items.amount),
-        backgroundColor: " rgb(252 165 165)",
-        borderColor: "rgb(239 68 68)",
+        backgroundColor: "rgba(255, 99, 132, 0.2)",
+        borderColor: "rgb(255, 99, 132)",
         borderWidth: 1,
       },
       {
         label: "Income",
         data: income.map((items: incomeDataType) => items.amount),
-        backgroundColor: "rgb(217 249 157)",
-        borderColor: "rgb(132 204 22)",
+        backgroundColor: "rgba(75, 192, 192, 0.2)",
+        borderColor: "rgb(75, 192, 192)",
         borderWidth: 1,
       },
     ],
@@ -51,11 +51,11 @@ export default function BarChart() {
     responsive: true,
     plugins: {
       legend: {
-        display: "flex",
+        display: true, // Change from string to boolean
       },
       title: {
         display: true,
-        text: " Expense Data",
+        text: "Your Chart Title", // Make sure this is a string
       },
     },
   };
@@ -63,7 +63,7 @@ export default function BarChart() {
   // for dounant
   const chartData = {
     labels: expense.map((items: ExpenseType) => items.title),
-    values: expense.map((items: ExpenseType) => items.amount),
+    values: expense.map((items: ExpenseType) => Number(items.amount)),
     backgroundColor: expense.map((items: ExpenseType) => items.color),
   };
 

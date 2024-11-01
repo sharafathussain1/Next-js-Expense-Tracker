@@ -1,11 +1,15 @@
+
+
 export type ExpenseType ={
-    index:string;
+    uid:string|undefined;
+    index:number;
     note:string;
     categorie:string
     id:string;
-    createdAt:Date|string;
-    key:string;
+    createdAt:string|Date;
+    key?:string;
     color:string;
     title:string;
-    amount:number
+    amount:number|string;
 }
+

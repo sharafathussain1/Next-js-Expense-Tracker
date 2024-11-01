@@ -3,8 +3,14 @@ import { MdOutlineAttachMoney, MdOutlineTitle } from "react-icons/md";
 import Modol from "../modol";
 import { auth } from "@/firebase/authentication";
 import { UseFinanceContext } from "@/context/finaceContext";
+import { ExpenseType } from "@/type/expenseType";
+//  type
+type show_incloseType = {
+  show: boolean;
+  onclose: (open: boolean) => void;
+};
 
-export default function AddExpense({ show, onclose }) {
+export default function AddExpense({ show, onclose }: show_incloseType) {
   // const [modolIsOpen, setmodolIsOpen] = useState(false);
   const [title, settitle] = useState<string>("");
   const [color, setColor] = useState<string>("");
@@ -14,11 +20,11 @@ export default function AddExpense({ show, onclose }) {
 
   // get expense add function from finance context
   const { AddExpense } = UseFinanceContext();
-
+  // add
   const addexpenseHandler = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
     const uid = auth.currentUser?.uid;
-    const expenseData = {
+    const expenseData: ExpenseType = {
       color,
       title,
       amount,
@@ -26,12 +32,14 @@ export default function AddExpense({ show, onclose }) {
       note,
       createdAt: new Date(),
       uid,
+      index: 0,
+      id: "",
     };
 
     // firestore
 
     try {
-      await AddExpense(expenseData);
+      AddExpense(expenseData);
       // const collectionRef = collection(db, "expense");
       // await addDoc(collectionRef, expense);
     } catch (error) {
@@ -117,6 +125,9 @@ export default function AddExpense({ show, onclose }) {
                   </option>
                   <option className="text-start tracking-widest" value="Bills">
                     Bills
+                  </option>
+                  <option className="text-start tracking-widest" value="Food">
+                    Food
                   </option>
                   <option
                     className="text-start tracking-widest"

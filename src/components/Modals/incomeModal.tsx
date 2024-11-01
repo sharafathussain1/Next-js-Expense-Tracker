@@ -5,10 +5,19 @@ import { FaRegStickyNote } from "react-icons/fa";
 import { auth } from "@/firebase/authentication";
 import { UseFinanceContext } from "@/context/finaceContext";
 import { FcBullish, FcFullTrash } from "react-icons/fc";
+import { incomeDataType } from "@/type/incometype";
+//  type
+type showIncome_oncloseIncomeType = {
+  showIncome: boolean;
+  oncloseIncome: (open: boolean) => void;
+};
 
-export default function AddIncome({ showIncome, oncloseIncome }) {
+export default function AddIncome({
+  showIncome,
+  oncloseIncome,
+}: showIncome_oncloseIncomeType) {
   //   const [modolIsOpen, setmodolIsOpen] = useState(false)
-  const [discription, setdiscription] = useState<string>("");
+  const [description, setdescription] = useState<string>("");
   const [amount, setamount] = useState<string | number>("");
   // const [income, setIncome] = useState<any>([]);
 
@@ -20,9 +29,10 @@ export default function AddIncome({ showIncome, oncloseIncome }) {
   const addincomeHandler = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
     const uid = auth.currentUser?.uid;
-    const incomeData = {
+    const incomeData: incomeDataType = {
+      id: "id",
       amount,
-      discription,
+      description,
       createdAt: new Date(),
       uid,
     };
@@ -31,9 +41,9 @@ export default function AddIncome({ showIncome, oncloseIncome }) {
     try {
       // AddIncomeData this function from finance context
       // add data in firestore
-      await AddIncomeData(incomeData);
+      AddIncomeData(incomeData);
       setamount("");
-      setdiscription("");
+      setdescription("");
     } catch (error) {
       console.log(error);
     }
@@ -94,9 +104,9 @@ export default function AddIncome({ showIncome, oncloseIncome }) {
                 id="title"
                 className="bg-gray-50 border tracking-widest border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Amount description..."
-                value={discription}
+                value={description}
                 onChange={(e) => {
-                  setdiscription(e.target.value);
+                  setdescription(e.target.value);
                 }}
                 required
               />
@@ -131,10 +141,10 @@ export default function AddIncome({ showIncome, oncloseIncome }) {
                   </span>
                   <div>
                     <h4 className="font-bold text-slate-900">
-                      {dataIncome?.discription}
+                      {dataIncome?.description}
                     </h4>
                     <h4 className="income-Date">
-                      {dataIncome.createdAt.toISOString()}
+                      {dataIncome.createdAt.toString().split("GMT")[0]}
                     </h4>
                   </div>
                 </div>

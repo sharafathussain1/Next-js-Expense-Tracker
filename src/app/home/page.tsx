@@ -10,13 +10,15 @@ import { UseFinanceContext } from "../../context/finaceContext";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/firebase/firestore";
 import { auth } from "@/firebase/authentication";
-import { ExpenseType } from "@/type/expenseType";
+
+// import { ExpenseType } from "@/type/expenseType";
 
 export default function User() {
   const [balance, setBalance] = useState<number | null>(null);
   const [expensemodolIsOpen, setexpensemodolIsOpen] = useState<boolean>(false);
   const [incomeModalIsopen, setincomeModalIsopen] = useState<boolean>(false);
-  const [userName, setuserName] = useState();
+  const [userName, setuserName] = useState<string | null>(null);
+
   // expense data from finance context
 
   const { expense, income } = UseFinanceContext();
@@ -25,13 +27,13 @@ export default function User() {
 
   useEffect(() => {
     const add = () => {
-      let sumExpense = 0;
-      let sumIncome = 0;
+      let sumExpense: number = 0;
+      let sumIncome: number = 0;
       for (let i = 0; i < expense.length; i++) {
-        sumExpense += expense[i].amount;
+        sumExpense += Number(expense[i].amount);
       }
       for (let i = 0; i < income.length; i++) {
-        sumIncome += income[i].amount;
+        sumIncome += Number(income[i].amount);
       }
       setBalance(sumIncome - sumExpense);
     };
@@ -69,7 +71,7 @@ export default function User() {
       <AddExpense show={expensemodolIsOpen} onclose={setexpensemodolIsOpen} />
 
       <div className="">
-        <Header name={userName} />
+        <Header name={userName || "User"} />
 
         <section className=" flex justify-center mt-5 ">
           <div className="section-parent w-5/6 ">
@@ -104,13 +106,16 @@ export default function User() {
             {/* expense section */}
             <section className="section-third mt-10">
               <h2 className="font-bold text-2xl  text-gray-400">My Expenses</h2>
+              {/* sort data */}
 
               <div className="mt-2 flex flex-col gap-4">
-                {expense.map((expenseData: ExpenseType, index: string) => {
+                {expense.map((expenseData, index) => {
                   return (
                     <Expenses
                       index={index}
-                      createdAt={expenseData.createdAt.toISOString()}
+                      createdAt={
+                        expenseData.createdAt.toString().split(" GMT")[0]
+                      }
                       id={expenseData.id}
                       key={expenseData.id}
                       title={expenseData.title}
@@ -118,6 +123,7 @@ export default function User() {
                       categorie={expenseData.categorie}
                       color={expenseData.color}
                       amount={expenseData.amount}
+                      uid={undefined}
                     />
                   );
                 })}

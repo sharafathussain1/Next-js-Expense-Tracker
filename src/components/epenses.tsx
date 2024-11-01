@@ -32,6 +32,10 @@ export default function Expenses({
     //  console.log(id);
   };
 
+  // Convert createdAt to a string
+  const displayDate =
+    typeof createdAt === "string" ? createdAt : createdAt.toLocaleString(); // You can customize the format as needed
+
   return (
     <div className=" ">
       {/* here create a  moldal  that show detail of expense */}
@@ -74,7 +78,10 @@ export default function Expenses({
               </span>
               <span className="flex items-center gap-2">
                 <BsCalendar2Date />
-                <p>Date: {expense[index].createdAt.toISOString()}</p>
+
+                <p>
+                  Date: {expense[index].createdAt.toString().split("GMT")[0]}
+                </p>
               </span>
             </div>
           </div>
@@ -100,7 +107,7 @@ export default function Expenses({
 
           <span className="ms-3">
             <h4 className=" text-gray-900 font-bold">{title}</h4>
-            <p className="expense-data">{createdAt}</p>
+            <p className="expense-data">{displayDate}</p>
           </span>
         </div>
         <div className=" flex gap-4 ">

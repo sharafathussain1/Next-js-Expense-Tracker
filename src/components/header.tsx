@@ -5,7 +5,11 @@ import { getAuth, signOut } from "firebase/auth";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function Header({ name }) {
+interface HeaderProps {
+  name: string; // Specify the type of 'name' as a string
+}
+
+const Header: React.FC<HeaderProps> = ({ name }) => {
   function logout() {
     const auth = getAuth(app);
     signOut(auth)
@@ -55,4 +59,5 @@ export default function Header({ name }) {
       </div>
     </div>
   );
-}
+};
+export default Header;
