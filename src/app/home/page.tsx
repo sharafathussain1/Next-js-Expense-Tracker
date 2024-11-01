@@ -94,12 +94,6 @@ export default function User() {
                 >
                   + Income
                 </button>
-                {/* <button
-                onClick={() => setincomeModalIsopen(true)}
-                className="income-btn border-2 border-green-900 text-green-900  py-2 px-4 rounded-3xl font-bold"
-              >
-                + Income
-              </button> */}
               </section>
             </div>
 
