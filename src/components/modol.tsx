@@ -23,7 +23,7 @@ export default function Modol({
         }}
       >
         <p
-          className="  close-icon text-2xl top-4 left-4  cursor-pointer"
+          className="  close-icon text-2xl top-4 left-4  cursor-pointer font-bold text-slate-950"
           onClick={modalHandler}
         >
           <RiCloseLargeFill />
