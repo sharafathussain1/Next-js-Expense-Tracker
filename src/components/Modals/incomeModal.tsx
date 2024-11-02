@@ -16,13 +16,9 @@ export default function AddIncome({
   showIncome,
   oncloseIncome,
 }: showIncome_oncloseIncomeType) {
-  //   const [modolIsOpen, setmodolIsOpen] = useState(false)
   const [description, setdescription] = useState<string>("");
   const [amount, setamount] = useState<string | number>("");
-  // const [income, setIncome] = useState<any>([]);
 
-  // User from contextapi
-  // const { user } = UseAuthContext();
   // data from financeContextapi
   const { income, AddIncomeData, DelteIncome } = UseFinanceContext();
   //  add income handler
@@ -39,8 +35,6 @@ export default function AddIncome({
 
     // firestore
     try {
-      // AddIncomeData this function from finance context
-      // add data in firestore
       AddIncomeData(incomeData);
       setamount("");
       setdescription("");
@@ -54,7 +48,7 @@ export default function AddIncome({
   const delteIncomeHistory = async (id: string) => {
     try {
       // DelteIncome this function from finance context
-      await DelteIncome(id);
+      DelteIncome(id);
     } catch (error) {
       console.log(error);
     }
@@ -76,7 +70,9 @@ export default function AddIncome({
                 {/* amount icon */}
                 <MdOutlineAttachMoney />
               </div>
-              <label htmlFor="Amount">Amount</label>
+              <label htmlFor="Amount" className="text-slate-50">
+                Amount
+              </label>
               <input
                 type="number"
                 id="Amount"
@@ -98,7 +94,9 @@ export default function AddIncome({
                 {/*  icon */}
                 <FaRegStickyNote />
               </div>
-              <label htmlFor="title">title</label>
+              <label htmlFor="title" className="text-slate-50">
+                title
+              </label>
               <input
                 type="text"
                 id="title"
@@ -127,7 +125,9 @@ export default function AddIncome({
           {/* Income History */}
 
           <div>
-            <h3 className="text-xl font-semibold">Income History</h3>
+            <h3 className="text-xl font-semibold text-slate-50">
+              Income History
+            </h3>
             {/* here print income data  */}
             {income.map((dataIncome) => (
               <div

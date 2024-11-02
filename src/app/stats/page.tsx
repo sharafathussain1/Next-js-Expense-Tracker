@@ -51,10 +51,12 @@ export default function BarChart() {
     },
   };
   return (
-    <div className=" fixed stats-parent h-screen w-screen bg-slate-50 flex justify-center items-center flex-col">
-      <h1 className="text-xl font-bold">Expense Chart</h1>
-      <div className=" char-child h-[300px] w-full flex justify-center items-center ">
-        <Bar data={data} options={options} />
+    <div className="h-screen w-screen flex justify-center items-center  bg-slate-50">
+      <div className=" fixed stats-parent w-screen flex justify-center items-center flex-col">
+        <h1 className="text-xl font-bold">Expense Chart</h1>
+        <div className=" char-child h-[300px] w-full flex justify-center items-center ">
+          <Bar data={data} options={options} />
+        </div>
       </div>
     </div>
   );

@@ -15,7 +15,7 @@ export default function Varify() {
           ></Image>
         </div>
         <div className="succes_message">
-          <h1>Email Sent Successfully!</h1>
+          <h1 className="text-slate-50">Email Sent Successfully!</h1>
           <p>
             Please check your email inbox then click the link to verify your
             email and <b>Hit the refresh button</b>

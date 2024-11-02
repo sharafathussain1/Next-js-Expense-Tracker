@@ -79,7 +79,9 @@ export default function AddExpense({ show, onclose }: show_incloseType) {
                 {/* title icon */}
                 <MdOutlineTitle />
               </div>
-              <label htmlFor="title">title</label>
+              <label htmlFor="title" className="text-slate-50">
+                title
+              </label>
               <input
                 type="text"
                 id="title"
@@ -100,7 +102,9 @@ export default function AddExpense({ show, onclose }: show_incloseType) {
                 {/* amount icon */}
                 <MdOutlineAttachMoney />
               </div>
-              <label htmlFor="Amount">Amount</label>
+              <label htmlFor="Amount" className="text-slate-50">
+                Amount
+              </label>
               <input
                 type="number"
                 id="Amount"
@@ -119,7 +123,7 @@ export default function AddExpense({ show, onclose }: show_incloseType) {
             {/* category */}
             <div className="relative w-full">
               <>
-                <label>categories</label>
+                <label className="text-slate-50">categories</label>
                 <select
                   id="options"
                   className="text-white w-full bg-slate-500   focus:ring-4 focus:outline-none  focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center "
@@ -173,7 +177,9 @@ export default function AddExpense({ show, onclose }: show_incloseType) {
 
             {/* color */}
             <div className="relative w-full flex flex-col">
-              <label htmlFor="title">Color</label>
+              <label htmlFor="title" className="text-slate-50">
+                Color
+              </label>
               <input
                 type="color"
                 id="color"
@@ -190,7 +196,10 @@ export default function AddExpense({ show, onclose }: show_incloseType) {
 
             {/* note */}
             <div className="relative w-full">
-              <label htmlFor="text note"> text note </label>
+              <label htmlFor="text note" className="text-slate-50">
+                {" "}
+                text note{" "}
+              </label>
               <textarea
                 name=""
                 id="text note"

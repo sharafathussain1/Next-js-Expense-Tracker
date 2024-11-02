@@ -30,10 +30,6 @@ const Header: React.FC<HeaderProps> = ({ name }) => {
           <div className="flex items-center">
             <div className="image">
               <Image src="/avator.webp" alt="" width={100} height={100} />
-              {/* <img
-                src="https://images.pexels.com/photos/460031/pexels-photo-460031.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                alt=""
-              /> */}
             </div>
             <p className="ps-4  text-gray-400 font-bold font-sans">{name}</p>
           </div>
@@ -41,7 +37,10 @@ const Header: React.FC<HeaderProps> = ({ name }) => {
 
         <div className="header-second p-5 ">
           <div className="flex items-center gap-5 ">
-            <Link href="/stats" className="text-xl cursor-pointer">
+            <Link
+              href="/stats"
+              className="text-xl cursor-pointer text-slate-900"
+            >
               {" "}
               <ImStatsBars />
             </Link>
