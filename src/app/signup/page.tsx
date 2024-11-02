@@ -73,7 +73,7 @@ export default function SignUP() {
           <h1>Sign Up</h1>
         </div>
         {/* email */}
-        <label className="input input-bordered flex items-center gap-2 bg-slate-600 border-1 hover:border-slate-900">
+        <label className="input input-bordered flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -95,7 +95,7 @@ export default function SignUP() {
           />
         </label>
         {/* username */}
-        <label className="input input-bordered flex items-center gap-2  bg-slate-600 border-2 hover:border-slate-900">
+        <label className="input input-bordered flex items-center gap-2 ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -116,7 +116,7 @@ export default function SignUP() {
           />
         </label>
         {/* password */}
-        <label className="input input-bordered flex items-center gap-2  bg-slate-600 border-1 hover:border-slate-900">
+        <label className="input input-bordered flex items-center gap-2 ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -141,7 +141,7 @@ export default function SignUP() {
           />
         </label>
         {/* confirm password */}
-        <label className="input input-bordered flex items-center gap-2  bg-slate-600 border-1 hover:border-slate-900">
+        <label className="input input-bordered flex items-center gap-2 ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"

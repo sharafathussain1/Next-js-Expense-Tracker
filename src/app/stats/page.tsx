@@ -11,8 +11,6 @@ import {
 } from "chart.js";
 import { UseFinanceContext } from "../../context/finaceContext";
 import { ExpenseType } from "@/type/expenseType";
-import DonutChart from "@/components/dounatChart";
-import { incomeDataType } from "@/type/incometype";
 
 ChartJS.register(
   CategoryScale,
@@ -24,7 +22,7 @@ ChartJS.register(
 );
 
 export default function BarChart() {
-  const { expense, income } = UseFinanceContext();
+  const { expense } = UseFinanceContext();
 
   const data = {
     labels: expense.map((items: ExpenseType) => items.title),
@@ -35,13 +33,6 @@ export default function BarChart() {
         data: expense.map((items: ExpenseType) => items.amount),
         backgroundColor: "rgba(255, 99, 132, 0.2)",
         borderColor: "rgb(255, 99, 132)",
-        borderWidth: 1,
-      },
-      {
-        label: "Income",
-        data: income.map((items: incomeDataType) => items.amount),
-        backgroundColor: "rgba(75, 192, 192, 0.2)",
-        borderColor: "rgb(75, 192, 192)",
         borderWidth: 1,
       },
     ],
@@ -59,25 +50,11 @@ export default function BarChart() {
       },
     },
   };
-
-  // for dounant
-  const chartData = {
-    labels: expense.map((items: ExpenseType) => items.title),
-    values: expense.map((items: ExpenseType) => Number(items.amount)),
-    backgroundColor: expense.map((items: ExpenseType) => items.color),
-  };
-
   return (
     <div className=" fixed stats-parent h-screen w-screen bg-slate-50 flex justify-center items-center flex-col">
       <h1 className="text-xl font-bold">Expense Chart</h1>
       <div className=" char-child h-[300px] w-full flex justify-center items-center ">
         <Bar data={data} options={options} />
-      </div>
-
-      {/* donutchart  */}
-      <div className=" donutchart mt-3">
-        <h1 className="text-center">Expense chart</h1>
-        <DonutChart data={chartData} />
       </div>
     </div>
   );

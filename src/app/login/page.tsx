@@ -45,7 +45,7 @@ export default function Login() {
         </div>
 
         {/* email */}
-        <label className="input input-bordered flex items-center gap-2 bg-slate-600 border-1 hover:border-slate-900">
+        <label className="input input-bordered flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -68,7 +68,7 @@ export default function Login() {
           />
         </label>
         {/* paswword */}
-        <label className="input input-bordered flex items-center gap-2  bg-slate-600 border-1 hover:border-slate-900">
+        <label className="input input-bordered flex items-center gap-2 ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
